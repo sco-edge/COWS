@@ -3,7 +3,7 @@
 from selenium import webdriver
 from time import sleep
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome() # after selenium4 no need to select path
 
 try:
         while True:
