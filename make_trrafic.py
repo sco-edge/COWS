@@ -1,4 +1,5 @@
 ### Implementing to make traffics
+### Making traffics on 'productpage' site(ISTIO's sample webpage)
 from selenium import webdriver
 from time import sleep
 
