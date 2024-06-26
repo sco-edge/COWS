@@ -1,0 +1,10 @@
+### kubectl apply -f able_mTLS.yaml
+
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+    name: enable-mtls
+    namespace: <your-namespace>
+spec:
+    mtls:
+        mode: STRICT
