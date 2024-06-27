@@ -28,3 +28,6 @@ reviews-v1-6c5c97576c-8wmbj       1/1     Running   1 (95m ago)   2d6h
 reviews-v2-575d87db6c-6gtwt       1/1     Running   1 (95m ago)   2d6h
 reviews-v3-698c4b8d4c-rsbq7       1/1     Running   1 (95m ago)   2d6h
 
+## Kiali 대시보드 사용 - Kiali를 통해 서비스 메쉬를 시각적으로 확인할 수 있습니다.
+kubectl get pods -n istio-system | grep kiali
+kubectl port-forward -n istio-system svc/kiali 20001:20001
