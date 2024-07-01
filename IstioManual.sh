@@ -36,3 +36,9 @@ kubectl port-forward -n istio-system svc/kiali 20001:20001
 $ kubectl get peerauthentication -A
 NAMESPACE      NAME           MODE      AGE
 istio-system   disable-mtls   DISABLE   55s
+
+## minikube 강제 시작
+minikube status
+minikube stop
+minikube delete
+minikube start --force --wait=all
