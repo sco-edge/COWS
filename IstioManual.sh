@@ -42,3 +42,6 @@ minikube status
 minikube stop
 minikube delete
 minikube start --force --wait=all
+
+## 환경 변수 설정 명령어
+export PATH="$PATH:/home/junho/istio-1.22.1/bin"
