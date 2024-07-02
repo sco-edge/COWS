@@ -45,3 +45,6 @@ minikube start --force --wait=all
 
 ## 환경 변수 설정 명령어
 export PATH="$PATH:/home/junho/istio-1.22.1/bin"
+
+## 외부 주소가 pending 상태여서 ip 주소를 알지 못한다면 실행중인 클러스터 ip를 찾아야함
+## e.g., minikube ip
