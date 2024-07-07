@@ -48,3 +48,7 @@ export PATH="$PATH:/home/junho/istio-1.22.1/bin"
 
 ## 외부 주소가 pending 상태여서 ip 주소를 알지 못한다면 실행중인 클러스터 ip를 찾아야함
 ## e.g., minikube ip
+
+$ kubectl get svc istio-ingressgateway -n istio-system
+NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)                                                                      AGE
+istio-ingressgateway   LoadBalancer   10.110.75.85   <pending>     15021:32167/TCP,80:31909/TCP,443:31776/TCP,31400:30573/TCP,15443:30229/TCP   144m
