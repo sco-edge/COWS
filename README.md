@@ -2,7 +2,7 @@
 Calculating Overheads with Service Mesh's mTLS
 
 ### mTLS_On
-https://github.com/sco-edge/COWS/blob/main/Pictures/On_P50_P99.pdf
+<img src="https://github.com/sco-edge/COWS/blob/main/Pictures/On_P50_P99.pdf" width="90%"></img>
 
 ### mTLS_Off
-https://github.com/sco-edge/COWS/blob/main/Pictures/Off_P50_P99.pdf
+<img src="https://github.com/sco-edge/COWS/blob/main/Pictures/Off_P50_P99.pdf" width="90%"></img>
