@@ -18,3 +18,6 @@ kubectl get pods
 
 ### 애플리케이션 인그레스 게이트웨이 설정
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+
+### 게이트웨이의 IP 주소 확인
+kubectl get svc istio-ingressgateway -n istio-system
