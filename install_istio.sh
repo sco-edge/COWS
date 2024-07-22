@@ -25,3 +25,5 @@ kubectl get svc istio-ingressgateway -n istio-system
 ## 모니터링 툴 Prometheus 접근
 kubectl -n istio-system port-forward svc/prometheus 9090:9090
 
+## Grafana 접근
+kubectl -n istio-system port-forward svc/grafana 3000:3000
