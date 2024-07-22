@@ -19,5 +19,9 @@ kubectl get pods
 ### 애플리케이션 인그레스 게이트웨이 설정
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 
-### 게이트웨이의 IP 주소 확인
+### 게이트웨이의 IP 주소/포트 확인
 kubectl get svc istio-ingressgateway -n istio-system
+
+## 모니터링 툴 Prometheus 접근
+kubectl -n istio-system port-forward svc/prometheus 9090:9090
+
