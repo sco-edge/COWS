@@ -16,3 +16,5 @@ kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 kubectl get services
 kubectl get pods
 
+### 애플리케이션 인그레스 게이트웨이 설정
+kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
