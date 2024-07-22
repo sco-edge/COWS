@@ -12,3 +12,7 @@ kubectl label namespace default istio-injection=enabled
 ### Bookinfo 애플리케이션 배포
 kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 
+### 정상 배포 확인
+kubectl get services
+kubectl get pods
+
