@@ -45,4 +45,8 @@ kubectl apply -f samples/addons/extras/zipkin.yaml
 ### 트래픽 라우팅 설정
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 
-###
+### 트래픽 발생
+wrk -t4 -c50 -d1h -R100 --latency http://192.168.49.2:31909/productpage
+
+### Jaeger 대시보드
+istioctl dashboard jaeger
