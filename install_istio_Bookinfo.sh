@@ -28,11 +28,14 @@ kubectl -n istio-system port-forward svc/prometheus 9090:9090
 ## Grafana 접근
 kubectl -n istio-system port-forward svc/grafana 3000:3000
 
-## Zipkin 접근
-kubectl -n istio-system port-forward svc/zipkin 9411:9411
-
 ## Kiali 접근
 istioctl dashboard kiali
+
+### Jaeger 대시보드
+istioctl dashboard jaeger
+
+## Zipkin 접근
+kubectl -n istio-system port-forward svc/zipkin 9411:9411
 
 ### Zipkin 설명
 Zipkin 은 분산 추적 시스템입니다. 서비스 아키텍처에서 지연 문제를 해결하는 데 필요한 타이밍 데이터를 수집하는 데 도움이 됩니다. 이 데이터의 수집과 조회가 모두 특징입니다.
@@ -48,5 +51,3 @@ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 ### 트래픽 발생
 wrk -t4 -c50 -d1h -R100 --latency http://192.168.49.2:31909/productpage
 
-### Jaeger 대시보드
-istioctl dashboard jaeger
