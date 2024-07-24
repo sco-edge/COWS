@@ -52,6 +52,9 @@ make build test
 # Build the front-end and run the tests
 make build-ui-test
 
+cd $KIALI_SOURCES/kiali
+make kiali-reload-image
+
 ## Kiali 접근
 istioctl dashboard kiali
 
