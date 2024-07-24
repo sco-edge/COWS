@@ -28,6 +28,30 @@ kubectl -n istio-system port-forward svc/prometheus 9090:9090
 ## Grafana 접근
 kubectl -n istio-system port-forward svc/grafana 3000:3000
 
+## Kiali 설치
+istioctl install --set profile=demo -y
+
+# Checkout the source code
+mkdir kiali_sources
+cd kiali_sources
+export KIALI_SOURCES=$(pwd)
+
+git clone https://github.com/kiali/kiali.git
+git clone https://github.com/kiali/kiali-operator.git
+git clone https://github.com/kiali/helm-charts.git
+
+ln -s $KIALI_SOURCES/kiali-operator kiali/operator
+
+# Build the back-end and run the tests
+cd $KIALI_SOURCES/kiali
+make build test
+
+# You can pass go test flags through the GO_TEST_FLAGS env var
+# make -e GO_TEST_FLAGS="-race -v -run=\"TestCanConnectToIstiodReachable\"" test
+
+# Build the front-end and run the tests
+make build-ui-test
+
 ## Kiali 접근
 istioctl dashboard kiali
 
@@ -43,7 +67,10 @@ Zipkin 은 분산 추적 시스템입니다. 서비스 아키텍처에서 지연
 Zipkin은 Jaeger의 대안이며 기본적으로 배포되지 않습니다. Jaeger를 Zipkin으로 바꾸려면 를 실행합니다. 또한 사용되지 않을 Jaeger 배포를 로 제거 하거나 시작하기kubectl delete deployment jaeger 의 선택적 설치 단계에 따라 처음부터 설치하지 않을 수도 있습니다 .
 
 ### Zipkin 설치
-kubectl apply -f samples/addons/extras/zipkin.yaml
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+### helm 저장소 추가
+helm repo add openzipkin https://openzipkin.github.io/zipkin-chart/
+helm repo update
 
 ### 트래픽 라우팅 설정
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
