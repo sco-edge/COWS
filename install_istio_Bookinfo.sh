@@ -79,6 +79,9 @@ https://docs.traceable.ai/docs/istio-with-zipkin
 helm repo add openzipkin https://openzipkin.github.io/zipkin-chart/
 helm repo update
 
+### label 확인 명령어
+kubectl get ns istio-system --show-labels
+
 ### 트래픽 라우팅 설정
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 
