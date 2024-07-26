@@ -61,6 +61,8 @@ istioctl dashboard kiali
 ### Jaeger 대시보드
 istioctl dashboard jaeger
 kubectl -n istio-system port-forward deploy/jaeger 16686:16686
+### trace 추적
+kubectl -n istio-system port-forward svc/jaeger-query 16685:16686 -n istio-system
 
 ## Zipkin 접근
 kubectl -n istio-system port-forward svc/zipkin 9411:9411
