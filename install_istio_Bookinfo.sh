@@ -82,6 +82,9 @@ helm repo update
 ### label 확인 명령어
 kubectl get ns istio-system --show-labels
 
+### istio-system의 구성 파드들 나열
+kubectl get pods -n istio-system
+
 ### 트래픽 라우팅 설정
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 
