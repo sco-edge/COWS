@@ -71,6 +71,10 @@ Zipkin은 Jaeger의 대안이며 기본적으로 배포되지 않습니다. Jaeg
 
 ### Zipkin 설치
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+### Zipkin 연동
+https://docs.traceable.ai/docs/istio-with-zipkin
+
 ### helm 저장소 추가
 helm repo add openzipkin https://openzipkin.github.io/zipkin-chart/
 helm repo update
