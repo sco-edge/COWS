@@ -78,6 +78,9 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ### Zipkin 연동
 https://docs.traceable.ai/docs/istio-with-zipkin
 
+### Zipkin 실행
+minikube service zipkin -n default
+
 ### helm 저장소 추가
 helm repo add openzipkin https://openzipkin.github.io/zipkin-chart/
 helm repo update
