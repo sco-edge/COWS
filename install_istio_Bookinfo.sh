@@ -106,3 +106,6 @@ kubectl config get-contexts
 
 ### 필요없는 컨텍스트 삭제
 kubectl config delete-context <context-name>
+
+### 쿠버네티스 충돌 및 미니쿠베 제거
+minikube delete --all --purge
