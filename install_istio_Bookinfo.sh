@@ -109,3 +109,23 @@ kubectl config delete-context <context-name>
 
 ### 쿠버네티스 충돌 및 미니쿠베 제거
 minikube delete --all --purge
+
+
+--------------------------------
+### bookinfo 설치
+curl -L https://istio.io/downloadIstio | sh -
+cd istio-<version>
+export PATH=$PWD/bin:$PATH
+
+istioctl install --set profile=demo -y
+
+kubectl label namespace default istio-injection=enabled
+
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+
+kubectl get services
+kubectl get pods
+
+kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+
+kubectl get svc istio-ingressgateway -n istio-system
