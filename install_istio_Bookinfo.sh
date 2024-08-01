@@ -20,6 +20,7 @@ kubectl get pods
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 
 ### 게이트웨이의 IP 주소/포트 확인
+******** 
 kubectl get svc istio-ingressgateway -n istio-system
 
 ## 모니터링 툴 Prometheus 접근
