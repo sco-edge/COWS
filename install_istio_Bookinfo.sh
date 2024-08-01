@@ -99,3 +99,9 @@ wrk -t4 -c50 -d1h -R100 --latency http://192.168.49.2:31909/productpage
 
 ### CRD 문제
 istioctl install --set profile=demo -y
+
+### 기존에 존재하던 쿠버네티스 컨테이너 혹은 도커 컨테이너 조회
+kubectl config get-contexts
+
+### 필요없는 컨텍스트 삭제
+kubectl config delete-context <context-name>
