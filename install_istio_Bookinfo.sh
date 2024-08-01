@@ -97,3 +97,5 @@ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 ### 트래픽 발생
 wrk -t4 -c50 -d1h -R100 --latency http://192.168.49.2:31909/productpage
 
+### CRD 문제
+istioctl install --set profile=demo -y
