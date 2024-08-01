@@ -110,6 +110,7 @@ kubectl config delete-context <context-name>
 ### 쿠버네티스 충돌 및 미니쿠베 제거
 minikube delete --all --purge
 
+### 충돌시 도커 컨테이너 및 이미지 제거
 
 --------------------------------
 ### bookinfo 설치
@@ -129,3 +130,8 @@ kubectl get pods
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 
 kubectl get svc istio-ingressgateway -n istio-system
+-------------------------------------
+### minikube 클러스터 완전히 삭제하기
+sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube*   
+sudo apt-get autoremove  
+sudo rm -rf ~/.kube
