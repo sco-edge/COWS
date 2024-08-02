@@ -143,3 +143,7 @@ sudo systemctl enable docker
 minikube delete
 minikube start --driver=docker
 
+GUI Enable
+$ sudo systemctl set-default graphical
+GUI Disable
+$ sudo systemctl set-default multi-user
