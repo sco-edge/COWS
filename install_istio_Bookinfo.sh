@@ -147,3 +147,6 @@ GUI Enable
 $ sudo systemctl set-default graphical
 GUI Disable
 $ sudo systemctl set-default multi-user
+
+### minikube 실행 안됨
+minikube delete --all --purge
