@@ -100,6 +100,15 @@ kubectl get pods -n istio-system
 ### 트래픽 라우팅 설정
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 
+### wrk 설치
+sudo apt-get update
+sudo apt-get install -y build-essential libssl-dev git zlib1g-dev
+sudo git clone https://github.com/giltene/wrk2.git
+cd wrk2
+sudo make
+# move the executable to somewhere in your PATH
+sudo cp wrk /usr/local/bin
+
 ### 트래픽 발생
 wrk -t4 -c50 -d1h -R100 --latency http://192.168.49.2:31909/productpage
 
