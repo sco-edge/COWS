@@ -135,3 +135,18 @@ kubectl get svc istio-ingressgateway -n istio-system
 sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube*   
 sudo apt-get autoremove  
 sudo rm -rf ~/.kube
+
+### docker 자동으로 시작하게 만들기
+sudo systemctl enable docker
+
+### minikube start가 안될 떄
+minikube delete
+minikube start --driver=docker
+
+GUI Enable
+$ sudo systemctl set-default graphical
+GUI Disable
+$ sudo systemctl set-default multi-user
+
+### minikube 실행 안됨
+minikube delete --all --purge
