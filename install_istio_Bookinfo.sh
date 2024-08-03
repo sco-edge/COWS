@@ -2,6 +2,7 @@
 curl -L https://istio.io/downloadIstio | sh -
 cd istio-<version>
 export PATH=$PWD/bin:$PATH
+export PATH="$PATH:/home/junho/Documents/istio-1.22.3/bin"
 
 ### istio 설치 파일 적용
 istioctl install --set profile=demo -y
