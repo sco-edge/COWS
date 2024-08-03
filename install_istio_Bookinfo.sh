@@ -140,6 +140,7 @@ minikube delete --all --purge
 curl -L https://istio.io/downloadIstio | sh -
 cd istio-<version>
 export PATH=$PWD/bin:$PATH
+export PATH="$PATH:/home/junho/Documents/istio-1.22.3/bin"
 
 istioctl install --set profile=demo -y
 
