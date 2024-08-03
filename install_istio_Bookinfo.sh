@@ -109,6 +109,15 @@ sudo make
 # move the executable to somewhere in your PATH
 sudo cp wrk /usr/local/bin
 
+### wrk2 설치
+sudo apt-get update
+sudo apt-get install -y build-essential libssl-dev git zlib1g-dev
+git clone https://github.com/giltene/wrk2.git
+cd wrk2
+make
+# move the executable to somewhere in your PATH
+sudo cp wrk /usr/local/bin
+
 ### 트래픽 발생
 wrk -t4 -c50 -d1h -R100 --latency http://192.168.49.2:31909/productpage
 
