@@ -2,6 +2,9 @@
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 
+### 부팅시 Docker 자동 실행
+sudo systemctl enable docker
+
 ### istio 설치
 curl -L https://istio.io/downloadIstio | sh -
 cd istio-<version>
