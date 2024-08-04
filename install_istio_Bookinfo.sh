@@ -47,8 +47,8 @@ kubectl -n istio-system port-forward svc/prometheus 9090:9090
 ## Grafana 접근
 kubectl -n istio-system port-forward svc/grafana 3000:3000
 
-## Kiali 설치
-istioctl install --set profile=demo -y
+## Loki 접근
+kubectl -n istio-system port-forward svc/grafana 8080:80
 
 # Checkout the source code
 mkdir kiali_sources
