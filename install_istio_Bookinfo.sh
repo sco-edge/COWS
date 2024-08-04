@@ -2,6 +2,9 @@
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 
+### Docker 미작동(virtual box 설치로 해결)
+sudo apt install virtualbox
+
 ### 부팅시 Docker 자동 실행
 sudo systemctl enable docker
 
