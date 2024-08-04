@@ -46,7 +46,9 @@ kubectl apply -f skywalking.yaml
 ### 정상 배포 확인
 kubectl get services
 kubectl get pods
+
 =========<맨 위부터 이곳까지 드래그하여 복붙 시 one-click install 가능>=========
+
 ## 모니터링 툴 Prometheus 접근
 kubectl -n istio-system port-forward svc/prometheus 9090:9090
 
