@@ -24,10 +24,6 @@ cd Documents/istio-1.22.3/samples/
 ### Bookinfo 애플리케이션 배포
 kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 
-### 정상 배포 확인
-kubectl get services
-kubectl get pods
-
 ### 애플리케이션 인그레스 게이트웨이 설정
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 
@@ -41,6 +37,10 @@ kubectl apply -f loki.yaml
 kubectl apply -f grafana.yaml
 kubectl apply -f kiali.yaml
 kubectl apply -f prometheus.yaml
+
+### 정상 배포 확인
+kubectl get services
+kubectl get pods
 
 ## 모니터링 툴 Prometheus 접근
 kubectl -n istio-system port-forward svc/prometheus 9090:9090
