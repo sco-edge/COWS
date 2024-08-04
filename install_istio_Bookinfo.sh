@@ -37,7 +37,7 @@ kubectl get svc istio-ingressgateway -n istio-system
 ### jaeger, loki, grafana, kiali, prometheus 일괄 설치
 kubectl apply -f jaeger.yaml
 kubectl apply -f loki.yaml
-kubectl apply -f grafa.yaml
+kubectl apply -f grafana.yaml
 kubectl apply -f kiali.yaml
 kubectl apply -f prometheus.yaml
 
