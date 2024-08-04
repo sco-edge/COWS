@@ -32,7 +32,7 @@ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 kubectl get svc istio-ingressgateway -n istio-system
 
 ### jaeger, loki, grafana, kiali, prometheus 일괄 설치
-cd addons
+cd samples/addons
 kubectl apply -f jaeger.yaml
 kubectl apply -f loki.yaml
 kubectl apply -f grafana.yaml
