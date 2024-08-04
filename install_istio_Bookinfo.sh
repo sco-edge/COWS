@@ -34,6 +34,13 @@ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 ******** 
 kubectl get svc istio-ingressgateway -n istio-system
 
+### jaeger, loki, grafana, kiali, prometheus 일괄 설치
+kubectl apply -f jaeger.yaml
+kubectl apply -f loki.yaml
+kubectl apply -f grafa.yaml
+kubectl apply -f kiali.yaml
+kubectl apply -f prometheus.yaml
+
 ## 모니터링 툴 Prometheus 접근
 kubectl -n istio-system port-forward svc/prometheus 9090:9090
 
