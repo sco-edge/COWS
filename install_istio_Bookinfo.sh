@@ -21,6 +21,7 @@ curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.6.8 TARGET_ARCH=x86_64 
 cd istio-<version>
 export PATH=$PWD/bin:$PATH
 export PATH="$PATH:/home/junho/Documents/istio-1.22.3/bin"
+### export PATH="$PATH:/home/junho/Documents/istio-1.6.8/bin"
 ### export PATH="$PATH:/home/junho/Documents/istio-1.8.3/bin"
 
 ### CRD 문제
