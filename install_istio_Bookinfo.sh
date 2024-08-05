@@ -16,7 +16,7 @@ kubectl delete namespace istio-system
 curl -L https://istio.io/downloadIstio | sh -
 
 ### 1.6 버전 지정 설치
-curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.6.8 TARGET_ARCH=x86_64 sh -.
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.6.8 TARGET_ARCH=x86_64 sh -
 
 cd istio-<version>
 export PATH=$PWD/bin:$PATH
