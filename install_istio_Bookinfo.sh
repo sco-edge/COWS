@@ -38,7 +38,7 @@ cd Documents/istio-1.22.3/
 kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 
 cd ../..
-### 애플리케이션 인그레스 게이트웨이 설정
+### 애플리케이션 인그레스 게이트웨이 설정(zipkin tracing이 안되는 이슈가 있다고 제보)
 kubectl apply -f networking/bookinfo-gateway.yaml
 
 ### 게이트웨이의 IP 주소/포트 확인
