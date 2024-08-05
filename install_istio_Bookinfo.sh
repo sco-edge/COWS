@@ -30,7 +30,7 @@ kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 
 cd ../..
 ### 애플리케이션 인그레스 게이트웨이 설정
-kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+kubectl apply -f networking/bookinfo-gateway.yaml
 
 ### 게이트웨이의 IP 주소/포트 확인
 ******** 
