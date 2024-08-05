@@ -15,6 +15,9 @@ export PATH=$PWD/bin:$PATH
 export PATH="$PATH:/home/junho/Documents/istio-1.22.3/bin"
 ### export PATH="$PATH:/home/junho/Documents/istio-1.8.3/bin"
 
+### CRD 문제
+istioctl install --set profile=demo -y
+
 ### istio 설치 파일 적용
 istioctl install --set profile=demo -y
 
