@@ -8,6 +8,10 @@ sudo apt install virtualbox
 ### 부팅시 Docker 자동 실행
 sudo systemctl enable docker
 
+### 잔여 클러스터 제거(CRDs 설치 불가시 적용, 이후 istio 재설치 필요)
+istioctl x uninstall --purge
+kubectl delete namespace istio-system
+
 ### istio 설치
 curl -L https://istio.io/downloadIstio | sh -
 cd istio-<version>
