@@ -23,6 +23,7 @@ sudo iptables -I INPUT -p tcp --dport (SSL/SFTP용 포트) -j ACCEPT
 iptables -I INPUT -p tcp --dport 22 -j ACCEPT
 
 vmware 설치
+https://softwareupdate.vmware.com/cds/vmw-desktop/player/
 
 쿠버네티스 설치
 https://velog.io/@fill0006/Ubuntu-22.04-%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0
