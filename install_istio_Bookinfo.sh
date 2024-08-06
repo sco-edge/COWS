@@ -67,10 +67,6 @@ kubectl label namespace <namespace> istio-injection=enabled
 kubectl delete -f ~/Documents/istio-1.22.3/samples/bookinfo/platform/kube/bookinfo.yaml
 kubectl apply -f ~/Documents/istio-1.22.3/samples/bookinfo/platform/kube/bookinfo.yaml
 
-
-
-
-
 *** tracing이 정상적으로 되지 않을 때: 
 https://istio.io/latest/docs/tasks/observability/distributed-tracing/sampling/
 
