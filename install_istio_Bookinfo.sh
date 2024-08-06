@@ -74,6 +74,9 @@ https://istio.io/latest/docs/tasks/observability/distributed-tracing/sampling/
 kubectl delete namespace observability
 kubectl create namespace observability
 
+### observerability 사이드카 주입
+kubectl label namespace observability istio-injection=enabled
+
 kubectl delete -f samples/open-telemetry/otel.yaml -n observability
 kubectl apply -f samples/open-telemetry/otel.yaml -n observability
 
