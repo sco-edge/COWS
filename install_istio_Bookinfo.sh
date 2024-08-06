@@ -62,6 +62,9 @@ kubectl apply -f skywalking.yaml
 kubectl get services
 kubectl get pods
 
+### 사이드카 프록시 주입
+kubectl label namespace <namespace> istio-injection=enabled
+
 =========<맨 위부터 이곳까지 드래그하여 복붙 시 one-click install 가능>=========
 
 ## 모니터링 툴 Prometheus 접근
