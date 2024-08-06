@@ -67,8 +67,126 @@ kubectl label namespace <namespace> istio-injection=enabled
 kubectl delete -f ~/Documents/istio-1.22.3/samples/bookinfo/platform/kube/bookinfo.yaml
 kubectl apply -f ~/Documents/istio-1.22.3/samples/bookinfo/platform/kube/bookinfo.yaml
 
+
+
+
+
 *** tracing이 정상적으로 되지 않을 때: 
 https://istio.io/latest/docs/tasks/observability/distributed-tracing/sampling/
+
+*** minikube 재부팅시 추적 활성화하는 법
+kubectl delete namespace observability
+kubectl create namespace observability
+
+kubectl delete -f samples/open-telemetry/otel.yaml -n observability
+kubectl apply -f samples/open-telemetry/otel.yaml -n observability
+
+***
+cat <<EOF | istioctl install -y -f -
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  meshConfig:
+    enableTracing: true
+    defaultConfig:
+      tracing:
+        sampling: 10
+    extensionProviders:
+    - name: otel-tracing
+      opentelemetry:
+        port: 4317
+        service: opentelemetry-collector.observability.svc.cluster.local
+        resource_detectors:
+          environment: {}
+EOF
+
+***
+kubectl delete -f - <<EOF
+apiVersion: telemetry.istio.io/v1alpha1
+kind: Telemetry
+metadata:
+  name: mesh-default
+  namespace: istio-system
+spec:
+  tracing:
+  - providers:
+    - name: otel-tracing
+EOF
+
+***
+kubectl apply -f - <<EOF
+apiVersion: telemetry.istio.io/v1alpha1
+kind: Telemetry
+metadata:
+  name: mesh-default
+  namespace: istio-system
+spec:
+  tracing:
+  - providers:
+    - name: otel-tracing
+EOF
+
+***
+cat <<EOF | istioctl delete -y -f -
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  meshConfig:
+    enableTracing: true
+    extensionProviders:
+    - name: otel-tracing
+      opentelemetry:
+        port: 4317
+        service: opentelemetry-collector.observability.svc.cluster.local
+        resource_detectors:
+          environment: {}
+EOF
+
+***
+cat <<EOF | istioctl install -y -f -
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  meshConfig:
+    enableTracing: true
+    extensionProviders:
+    - name: otel-tracing
+      opentelemetry:
+        port: 4317
+        service: opentelemetry-collector.observability.svc.cluster.local
+        resource_detectors:
+          environment: {}
+EOF
+
+***
+kubectl delete -f - <<EOF
+apiVersion: telemetry.istio.io/v1alpha1
+kind: Telemetry
+metadata:
+   name: otel-demo
+spec:
+  tracing:
+  - providers:
+    - name: otel-tracing
+    randomSamplingPercentage: 10
+EOF
+
+***
+kubectl apply -f - <<EOF
+apiVersion: telemetry.istio.io/v1alpha1
+kind: Telemetry
+metadata:
+   name: otel-demo
+spec:
+  tracing:
+  - providers:
+    - name: otel-tracing
+    randomSamplingPercentage: 10
+EOF
+
+
+
+
 
 =========<맨 위부터 이곳까지 드래그하여 복붙 시 one-click install 가능>=========
 
