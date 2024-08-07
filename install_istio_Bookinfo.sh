@@ -186,13 +186,16 @@ EOF
 
 =========<맨 위부터 이곳까지 드래그하여 복붙 시 one-click install 가능>=========
 
-## minikube apiserver:stopped
+## minikube apiserver:stopped => 1st method
 sudo apt-get purge -y docker-engine docker docker.io docker-ce docker-ce-cli
 sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
 sudo rm -rf /var/lib/docker /etc/docker
 sudo rm /etc/apparmor.d/docker
 sudo groupdel docker
 sudo rm -rf /var/run/docker.sock
+
+## minikube apiserver:stopped => 2nd method
+eval $(minikube docker-env -u)
 
 ## 모니터링 툴 Prometheus 접근
 kubectl -n istio-system port-forward svc/prometheus 9090:9090
