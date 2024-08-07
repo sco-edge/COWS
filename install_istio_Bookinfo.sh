@@ -37,7 +37,7 @@ cd Documents/istio-1.22.3/
 ### Bookinfo 애플리케이션 배포
 kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 
-cd ../..
+cd samples/bookinfo
 ### 애플리케이션 인그레스 게이트웨이 설정
 kubectl apply -f networking/bookinfo-gateway.yaml
 
