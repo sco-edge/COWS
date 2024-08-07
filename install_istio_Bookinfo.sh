@@ -198,13 +198,13 @@ sudo rm -rf /var/run/docker.sock
 eval $(minikube docker-env -u)
 
 ## 모니터링 툴 Prometheus 접근
-kubectl -n istio-system port-forward svc/prometheus 9090:9090
+while true; do kubectl -n istio-system port-forward deploy/prometheus 9090:9090; done
 
 ## Grafana 접근
-kubectl -n istio-system port-forward svc/grafana 3000:3000
+while true; do kubectl -n istio-system port-forward deploy/grafana 3000:3000; done
 
 ## Loki 접근
-kubectl -n istio-system port-forward svc/loki 8080:80
+while true; do kubectl -n istio-system port-forward svc/loki 8080:80; done
 
 # Checkout the source code
 mkdir kiali_sources
