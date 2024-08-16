@@ -65,8 +65,8 @@ kubectl get pods
 kubectl label namespace default istio-injection=enabled
 kubectl label namespace istio-system istio-injection=enabled
 ### 주입 후에도 kiali에서 인식이 안될 시 파드 제거 후 재배포/minikube 재시작 때도 필요
-kubectl delete -f ~/Documents/istio-1.22.3/samples/bookinfo/platform/kube/bookinfo.yaml
-kubectl apply -f ~/Documents/istio-1.22.3/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl delete -f ~/Documents/istio-1.23.0/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl apply -f ~/Documents/istio-1.23.0/samples/bookinfo/platform/kube/bookinfo.yaml
 
 *** tracing이 정상적으로 되지 않을 때: 
 https://istio.io/latest/docs/tasks/observability/distributed-tracing/sampling/
