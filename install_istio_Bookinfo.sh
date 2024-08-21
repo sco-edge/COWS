@@ -343,3 +343,6 @@ $ sudo systemctl set-default multi-user
 
 ### minikube 실행 안됨
 minikube delete --all --purge
+
+### Use krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
