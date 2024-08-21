@@ -1,3 +1,7 @@
+### kubeshark 포트포워딩
+kubectl port-forward svc/kubeshark-front 8899:80 -n default
+
+
 ### Docker 설치
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
