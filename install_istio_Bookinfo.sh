@@ -348,5 +348,31 @@ $ sudo systemctl set-default multi-user
 ### minikube 실행 안됨
 minikube delete --all --purge
 
+## Tetragon
+
+### 설치
+cat <<EOF > kind-config.yaml
+apiVersion: kind.x-k8s.io/v1alpha4
+kind: Cluster
+nodes:
+  - role: control-plane
+    extraMounts:
+      - hostPath: /proc
+        containerPath: /procHost
+EOF
+kind create cluster --config kind-config.yaml
+EXTRA_HELM_FLAGS=(--set tetragon.hostProcPath=/procHost) # flags for helm install
+
+
 ### Use krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+### deploy Tetragon
+helm repo add cilium https://helm.cilium.io
+helm repo update
+helm install tetragon ${EXTRA_HELM_FLAGS[@]} cilium/tetragon -n kube-system
+kubectl rollout status -n kube-system ds/tetragon -w
+
+### deploy demo app
+kubectl create -f https://raw.githubusercontent.com/cilium/cilium/v1.15.3/examples/minikube/http-sw-app.yaml
+
