@@ -1,5 +1,7 @@
 ### kubeshark 포트포워딩
 kubectl port-forward svc/kubeshark-front 8899:80 -n default
+### k8s dashboard 포트포워딩(수정 필요)
+kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8446:443
 
 
 ### Docker 설치
