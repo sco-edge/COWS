@@ -1,2 +1,2 @@
 ## Kompose
-  ### Translate a Docker Compose File to Kubernetes Resources
+  - Translate a Docker Compose File to Kubernetes Resources
