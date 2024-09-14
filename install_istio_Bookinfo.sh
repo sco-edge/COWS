@@ -295,6 +295,10 @@ sudo cp wrk /usr/local/bin
 
 ### 트래픽 발생
 wrk -t4 -c50 -d1h -R100 --latency http://192.168.49.2:31909/productpage
+wrk -t2 -c50 -d1h -R100 --latency http://192.168.49.2:31307/productpage
+
+### wrk debug
+wrk -t2 -c50 -d1h -R100 --latency http://192.168.49.2:31307/productpage
 
 ### CRD 문제
 istioctl install --set profile=demo -y
