@@ -1,3 +1,6 @@
+### 실 파일명은 'socialmanifest.yaml'로 설정함
+
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
