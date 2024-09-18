@@ -10,4 +10,4 @@ spec:
       targetPort: 8080
       nodePort: 30001
   selector:
-    app: <app-label>
+    app: user-app
