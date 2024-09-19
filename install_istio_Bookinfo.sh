@@ -333,6 +333,9 @@ kubectl get pods
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 
 kubectl get svc istio-ingressgateway -n istio-system
+
+### DSB socialNetwork(media-fronted) 웹페이지 접속
+kubectl get svc media-frontend
 -------------------------------------
 ### minikube 클러스터 완전히 삭제하기
 sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube*   
