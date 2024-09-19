@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: media-frontend
+spec:
+  gateways:
+  - social-network-gateway
+  hosts:
+  - "*"
+  http:
+  - match:
+    route:
+    - destination:
+        host: media-frontend
+        port:
+          number: 8081
