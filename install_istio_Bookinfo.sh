@@ -334,7 +334,7 @@ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 
 kubectl get svc istio-ingressgateway -n istio-system
 
-### DSB socialNetwork(media-fronted) 웹페이지 접속
+### DSB socialNetwork(media-fronted) 웹페이지 접속(default namespace안에 존재함)
 kubectl get svc media-frontend -n default
 -------------------------------------
 ### minikube 클러스터 완전히 삭제하기
