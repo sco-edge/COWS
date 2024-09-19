@@ -314,6 +314,9 @@ minikube delete --all --purge
 
 ### 충돌시 도커 컨테이너 및 이미지 제거
 
+### pod가 위치한 namespace 검색(e.g., media-frontend가 속한 namespace 검색
+kubectl get pods --all-namespaces -l io.kompose.service=media-frontend
+
 --------------------------------
 ### bookinfo 설치
 curl -L https://istio.io/downloadIstio | sh -
