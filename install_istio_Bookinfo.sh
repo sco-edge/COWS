@@ -13,6 +13,8 @@ sudo sysctl -p
 ### 영구 적용 시
 ### /etc/sysctl.conf에서 fs.inotify.max_user_instances을 수정
 
+### bookinfo이름을 가진 minikube 생성
+minikube start -p bookinfo --memory 8192 --cpus 4
 
 
 ### kubeshark 포트포워딩
