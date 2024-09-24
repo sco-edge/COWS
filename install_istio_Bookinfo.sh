@@ -1,6 +1,20 @@
 ### minikube 신규 생성
 minikube start -p hellworld # helloworld 라는 이름의 profile로 생성
 
+## minikube 용량 부족
+### max_user_watches 확인
+cat /proc/sys/fs/inotify/max_user_watches
+### max_user_instances 확인
+cat /proc/sys/fs/inotify/max_user_instances
+
+### 제한 instance 수 상향
+sudo sysctl fs.inotify.max_user_instances=1024
+sudo sysctl -p
+### 영구 적용 시
+### /etc/sysctl.conf에서 fs.inotify.max_user_instances을 수정
+
+
+
 ### kubeshark 포트포워딩
 kubectl port-forward svc/kubeshark-front 8899:80 -n default
 ### k8s dashboard 포트포워딩(수정 필요)
