@@ -87,6 +87,10 @@ kubectl label namespace observability istio-injection=enabled
 kubectl delete -f samples/open-telemetry/otel.yaml -n observability
 kubectl apply -f samples/open-telemetry/otel.yaml -n observability
 
+### 사용중인 포트 조회 및 포트 죽이기
+sudo lsof -i :16686 // 16686 포트를 사용중인 프로세스 조회
+kill -9 PID // PID 프로세스 삭제
+
 ***
 cat <<EOF | istioctl install -y -f -
 apiVersion: install.istio.io/v1alpha1
