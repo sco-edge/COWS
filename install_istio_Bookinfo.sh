@@ -1,3 +1,6 @@
+### minikube 신규 생성
+minikube start -p hellworld # helloworld 라는 이름의 profile로 생성
+
 ### kubeshark 포트포워딩
 kubectl port-forward svc/kubeshark-front 8899:80 -n default
 ### k8s dashboard 포트포워딩(수정 필요)
