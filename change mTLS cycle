@@ -1,0 +1,6 @@
+### 'istio-configmap': istiod의 보안 인증서의 만료 시간을 1h -> 10m
+kubectl edit configmap istio -n istio-system
+
+
+
+kubectl rollout restart deployment istiod -n istio-system
