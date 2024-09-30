@@ -1,0 +1,1 @@
+kubectl exec -it productpage-v1-6779cfb5cc-9wh92 -- /bin/sh
