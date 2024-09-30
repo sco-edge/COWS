@@ -1,5 +1,7 @@
 ### minikube 신규 생성
 minikube start -p hellworld # helloworld 라는 이름의 profile로 생성
+### K8s deployment 시간 변경
+kubectl set env deployment/디플로이 이름 TZ="Asia/Seoul"
 
 ## minikube 용량 부족
 ### max_user_watches 확인
