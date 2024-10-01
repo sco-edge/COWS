@@ -1,5 +1,5 @@
 kubectl exec -it productpage-v1-6779cfb5cc-9wh92 -- /bin/sh
 
-kubectl node-shell bookinfo // bookinfo 노드에 접속
+kubectl node-shell bookinfo // bookinfo에 root 권한으로 노드에 접속
 
 참조: https://juniquerepo.tistory.com/44
