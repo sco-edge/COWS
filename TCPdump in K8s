@@ -4,6 +4,23 @@ kubectl node-shell bookinfo // bookinfo에 root 권한으로 노드에 접속
 
 ### tcpdump를 통해 패킷 캡쳐 /tmp/폴더 안에 캡처됨
 tcpdump -i any -vvv -w /tmp/mtls-handshake.pcap
-
-
 참조: https://juniquerepo.tistory.com/44
+
+### kubernetes 정보 조회 사이트
+minikube -p bookinfo dashboard
+
+### tcpdump 명령어 예
+sudo tcpdump -i any dst host 10.244.0.8 -vvv -w /tmp/mtls-handshake.pcap
+
+### 30초 후 종료
+sudo timeout 30 tcpdump -i any dst host 10.244.0.8 -vvv -w /root/mtls-handshake.pcap
+
+###
+ubuntu 관리자 권한으로 files열기
+sudo nautilus
+
+### pod(컨테이너)로 접속
+docker exec -it bookinfo /bin/bash
+
+### pod의 파일을 로컬로 복사
+docker cp con:/root/data.txt /home/dst/
