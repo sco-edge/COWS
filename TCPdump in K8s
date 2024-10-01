@@ -24,3 +24,7 @@ docker exec -it bookinfo /bin/bash
 
 ### pod의 파일을 로컬로 복사
 docker cp con:/root/data.txt /home/dst/
+
+### productpage 파드 안에 접근
+docker exec -it k8s_productpage_productpage-v1-d5789fdfb-6sg29_default_c52fa132-e7c9-4c0f-8ae4-2e8e3907a6eb_0 /bin/sh
+
