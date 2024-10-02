@@ -28,3 +28,8 @@ docker cp con:/root/data.txt /home/dst/
 ### productpage 파드 안에 접근
 docker exec -it k8s_productpage_productpage-v1-d5789fdfb-6sg29_default_c52fa132-e7c9-4c0f-8ae4-2e8e3907a6eb_0 /bin/sh
 
+### Filtering in Wireshark
+[SSL v3.0] ssl.record.version == 0x0300
+[TLS v1.0] ssl.record.version == 0x0301
+[TLS v1.1] ssl.record.version == 0x0302
+[TLS v1.2] ssl.record.version == 0x0303
