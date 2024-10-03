@@ -10,7 +10,7 @@ tcpdump -i any -vvv -w /tmp/mtls-handshake.pcap
 minikube -p bookinfo dashboard
 
 ### tcpdump 명령어 예
-sudo tcpdump -i any dst host 10.244.0.8 -vvv -w /tmp/mtls-handshake.pcap
+sudo tcpdump -i any dst host 10.244.0.8 -vvv -w /root/mtls-handshake.pcap
 
 ### 30초 후 종료
 sudo timeout 30 tcpdump -i any dst host 10.244.0.8 -vvv -w /root/mtls-handshake.pcap
