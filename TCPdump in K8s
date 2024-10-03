@@ -3,7 +3,7 @@ kubectl exec -it productpage-v1-6779cfb5cc-9wh92 -- /bin/sh
 kubectl node-shell bookinfo // bookinfo에 root 권한으로 노드에 접속
 
 ### tcpdump를 통해 패킷 캡쳐 /tmp/폴더 안에 캡처됨
-tcpdump -i any -vvv -w /tmp/mtls-handshake.pcap
+tcpdump -i any -vvv -w /root/mtls-handshake.pcap
 참조: https://juniquerepo.tistory.com/44
 
 ### kubernetes 정보 조회 사이트
