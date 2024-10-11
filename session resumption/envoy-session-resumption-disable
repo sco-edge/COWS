@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  name: tls-session-resumption
+  namespace: default
+spec:
+  workloadSelector:
+    labels:
+      app: productpage  # Bookinfo 서비스에 적용
+  configPatches:
+  - applyTo: FILTER_CHAIN
+    match:
+      listener:
+        portNumber: 443  # mTLS 포트
+    patch:
+      operation: MERGE
+      value:
+        transport_socket:
+          name: envoy.transport_sockets.tls
+          typed_config:
+            "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls>
+            common_tls_context:
+              tls_params:
+                session_resumption: false  # 세션 재사용 비활성화
