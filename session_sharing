@@ -1,0 +1,12 @@
+### session sharing ON on reviews
+
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: reviews
+spec:
+  host: reviews
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+      sessionTicket: true  # 세션 티켓을 활성화하여 재사용 가능하게 설정
