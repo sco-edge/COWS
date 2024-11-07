@@ -1,5 +1,9 @@
 ### minikube 신규 생성
 minikube start -p hellworld # helloworld 라는 이름의 profile로 생성
+
+### minikube 리스트
+minikube profile list
+
 ### K8s deployment 시간 변경
 kubectl set env deployment/디플로이 이름 TZ="Asia/Seoul"
 
