@@ -1,3 +1,6 @@
+### wrk로 트래픽 발생
+wrk -t4 -c50 -d1h -R100 --latency http://192.168.76.2:31552/productpage
+
 kubectl exec -it productpage-v1-6779cfb5cc-9wh92 -- /bin/sh
 
 kubectl node-shell bookinfo // bookinfo에 root 권한으로 노드에 접속
