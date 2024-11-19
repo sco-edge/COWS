@@ -428,3 +428,4 @@ kubectl create -f https://raw.githubusercontent.com/cilium/cilium/v1.15.3/exampl
 
 ### 모두 정리 cleanup.sh
 samples/bookinfo/platform/kube/cleanup.sh
+=> 재시작 시 앱 재배포 및 gateway 재설정 필요
