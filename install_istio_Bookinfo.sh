@@ -425,3 +425,6 @@ kubectl rollout status -n kube-system ds/tetragon -w
 
 ### deploy demo app
 kubectl create -f https://raw.githubusercontent.com/cilium/cilium/v1.15.3/examples/minikube/http-sw-app.yaml
+
+### 모두 정리 cleanup.sh
+samples/bookinfo/platform/kube/cleanup.sh
