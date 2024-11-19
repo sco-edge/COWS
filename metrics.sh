@@ -1,5 +1,8 @@
 ### istio metrics
 
+### 총 요청 수
+istio_requests_total
+
 ### 서비스에 대한 총 요청 수(productpage)
 istio_requests_total{destination_service="productpage.default.svc.cluster.local"}
 
