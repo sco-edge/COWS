@@ -25,3 +25,6 @@ sum(rate(istio_request_duration_milliseconds_count{security_istio_io_tlsMode!="i
 sum(rate(istio_request_duration_milliseconds_sum{security_istio_io_tlsMode="istio", destination_service_name="productpage"}[1m])) 
 / 
 sum(rate(istio_request_duration_milliseconds_count{security_istio_io_tlsMode="istio", destination_service_name="productpage"}[1m]))
+
+### TLS 지연 측정 시간 히스토그램 출력
+histogram_quantile(0.99, sum(rate(istio_request_duration_milliseconds_bucket{security_istio_io_tlsMode="istio"}[1m])) by (le))
