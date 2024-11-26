@@ -28,3 +28,7 @@ sum(rate(istio_request_duration_milliseconds_count{security_istio_io_tlsMode="is
 
 ### TLS 지연 측정 시간 히스토그램 출력
 histogram_quantile(0.99, sum(rate(istio_request_duration_milliseconds_bucket{security_istio_io_tlsMode="istio"}[1m])) by (le))
+
+### 히스토그램 버킷별 모든 데이터 출
+sum(rate(istio_request_duration_milliseconds_bucket{security_istio_io_tlsMode="istio"}[1m])) by (le)
+
