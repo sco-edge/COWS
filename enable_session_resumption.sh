@@ -23,7 +23,9 @@ spec:
             - inline_string: "c29tZXRoaW5nc2Vzc2lvbmhleQ=="  # Base64로 인코딩된 키
 
 
-
-
-
+### 적용
 kubectl apply -f enable-session-resumption.yaml
+
+### session resumption 적용 해제
+tls_session_ticket_keys: []
+
