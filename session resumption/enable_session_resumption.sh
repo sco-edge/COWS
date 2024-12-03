@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
   name: enable-session-resumption
-  namespace: istio-system
+  namespace: default
 spec:
   workloadSelector:
     labels:
