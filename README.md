@@ -1,5 +1,4 @@
-# COWS
-Calculating Overheads with Service Mesh's mTLS
+# Delve into Overheads of Service Mesh's mTLS
 
 ### <p align="center"> mTLS_On
 <p align="center"><img width="300" src="Pictures/On_P50_P99.png" width="90%"></img>
