@@ -118,6 +118,10 @@ kubectl label namespace observability istio-injection=enabled
 kubectl delete -f samples/open-telemetry/otel.yaml -n observability
 kubectl apply -f samples/open-telemetry/otel.yaml -n observability
 
+### ubuntu 파일 권한 추가
+sudo chown -R junho enable-session-resumption2.yaml
+chown -R $username
+
 ### 사용중인 포트 조회 및 포트 죽이기
 sudo lsof -i :16686 // 16686 포트를 사용중인 프로세스 조회
 kill -9 PID // PID 프로세스 삭제
