@@ -6,12 +6,12 @@ metadata:
 spec:
   workloadSelector:
     labels:
-      app: productpage  # Bookinfo 서비스에 적용
+      app: productpage
   configPatches:
   - applyTo: FILTER_CHAIN
     match:
       listener:
-        portNumber: 443  # mTLS 포트
+        portNumber: 443
     patch:
       operation: MERGE
       value:
@@ -21,34 +21,6 @@ spec:
             "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
             common_tls_context:
               tls_params:
-                session_resumption: true  # 세션 재사용 활성화
--------------------아래는 수정코드
-
-apiVersion: networking.istio.io/v1alpha3
-kind: EnvoyFilter
-metadata:
-  name: tls-session-resumption
-  namespace: default
-spec:
-  workloadSelector:
-    labels:
-      app: productpage  # Bookinfo 서비스에 적용
-  configPatches:
-  - applyTo: FILTER_CHAIN
-    match:
-      listener:
-        portNumber: 443  # mTLS 포트
-    patch:
-      operation: MERGE
-      value:
-        transport_socket:
-          name: envoy.transport_sockets.tls
-          typed_config:
-            "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
-            common_tls_context:
-              tls_params:
-                tls_max_session_ticket_lifetime: 15  # 15초 동안 세션 재사용 활성화
-                tls_min_protocol_version: TLSv1_2
-                tls_max_protocol_version: TLSv1_3
+                tls_max_session_ticket_lifetime: 15  # 15초
               session_ticket_keys:
-              - inline_bytes: "dGhpc2lzYXNlY3JldGtleTIzNDU2"  # Base64로 인코딩된 세션 키
+              - inline_bytes: "dGhpc2lzYXNlY3JldGtleTIzNDU2"
