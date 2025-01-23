@@ -126,6 +126,14 @@ chown -R $username
 sudo lsof -i :16686 // 16686 포트를 사용중인 프로세스 조회
 kill -9 PID // PID 프로세스 삭제
 
+### kubeshark 설치
+helm repo add kubeshark https://helm.kubeshark.co  
+helm install kubeshark kubeshark/kubeshark  
+kubectl port-forward service/kubeshark-front 8899:80 
+
+### kubeshark 제거
+helm uninstall kubeshark
+
 ***
 cat <<EOF | istioctl install -y -f -
 apiVersion: install.istio.io/v1alpha1
