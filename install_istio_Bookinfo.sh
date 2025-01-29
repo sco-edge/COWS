@@ -28,6 +28,8 @@ sudo sysctl -p
 ### bookinfo이름을 가진 minikube 생성
 minikube start -p bookinfo --memory 8192 --cpus 4
 
+### new 이름을 가진 minikube 재시작
+minikube -p new start
 
 ### kubeshark 포트포워딩
 kubectl port-forward svc/kubeshark-front 8899:80 -n default
