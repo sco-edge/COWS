@@ -397,6 +397,10 @@ sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube*
 sudo apt-get autoremove  
 sudo rm -rf ~/.kube
 
+kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.23/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.23/samples/bookinfo/networking/bookinfo-gateway.yaml
+
+
 ### docker 자동으로 시작하게 만들기
 sudo systemctl enable docker
 
