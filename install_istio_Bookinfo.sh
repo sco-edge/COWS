@@ -1,3 +1,9 @@
+### 재부팅시
+minikube -p new start
+환경변수 설정(export PATH="$PATH:/home/junho/Documents/istio-1.23.0/bin")
+
+
+
 ### minikube 신규 생성
 minikube start -p hellworld # helloworld 라는 이름의 profile로 생성
 
