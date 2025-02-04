@@ -86,6 +86,14 @@ cd samples/bookinfo
 ### 애플리케이션 인그레스 게이트웨이 설정
 kubectl apply -f networking/bookinfo-gateway.yaml
 
+### k8s에서 pod의 제거가 되지 않을 때(replica set을 삭제해야 함)
+### 레플리카셋 정보 조회
+kubectl get replicasets
+### 레플리카셋 상세 정보 조회
+kubectl describe replicasets
+### YAML 형식으로 조회하기
+kubectl get respliasets {레플리카셋 이름} -o=yaml
+
 ### 게이트웨이의 IP 주소/포트 확인
 ******** 
 kubectl get svc istio-ingressgateway -n istio-system
