@@ -87,6 +87,8 @@ cd samples/bookinfo
 kubectl apply -f networking/bookinfo-gateway.yaml
 
 ### k8s에서 pod의 제거가 되지 않을 때(replica set을 삭제해야 함)
+### replica set 제거
+kubectl delete replicaset {레플리카셋 이름}
 ### 레플리카셋 정보 조회
 kubectl get replicasets
 ### 레플리카셋 상세 정보 조회
