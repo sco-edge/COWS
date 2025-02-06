@@ -56,6 +56,9 @@ sudo systemctl enable docker
 ### 잔여 클러스터 제거(CRDs 설치 불가시 적용, 이후 istio 재설치 필요)
 istioctl x uninstall --purge
 kubectl delete namespace istio-system
+혹은
+kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v0.8.0" | kubectl apply -f -
+
 
 ### istio 설치
 curl -L https://istio.io/downloadIstio | sh -
