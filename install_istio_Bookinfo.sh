@@ -11,6 +11,8 @@ samples/bookinfo/platform/kube/cleanup.sh
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 
+## kubeshark 설치 및 실행
+kubeshark tap -n default(default ns와 연동)
 
 ### minikube 신규 생성
 minikube start -p hellworld # helloworld 라는 이름의 profile로 생성
