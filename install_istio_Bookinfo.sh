@@ -2,6 +2,14 @@
 minikube -p new start
 환경변수 설정(export PATH="$PATH:/home/junho/Documents/istio-1.23.0/bin")
 
+## bookinfo 삭제
+kubectl delete -f samples/bookinfo/networking/bookinfo-gateway.yaml
+kubectl delete -f samples/bookinfo/platform/kube/bookinfo.yaml
+samples/bookinfo/platform/kube/cleanup.sh
+
+설치(사이드카 프록시 주입 필요)
+kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 
 
 ### minikube 신규 생성
