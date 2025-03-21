@@ -1,0 +1,10 @@
+### Spire 제어 관리자의 워크로드에 대한 인증서 생성
+apiVersion: spire.spiffe.io/v1alpha1
+kind: ClusterSPIFFEID
+metadata:
+    name: spiffe-id
+spec:
+    spiffeIDTemplate: "spiffe://{{ .TrustDomain }}/ns/{{ .PodMeta.Namespace }}/sa/{{ .PodSpec.ServiceAccountName }}"
+    podSelector:
+        matchLabels:
+    spiffe.io/spire-managed-identity: "true"
