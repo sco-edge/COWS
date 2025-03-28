@@ -1,3 +1,8 @@
+### minikube 프로필 리스트 확인
+minikube profile list
+
+
+
 ### 재부팅시
 minikube -p new start
 환경변수 설정(export PATH="$PATH:/home/junho/Documents/istio-1.23.0/bin")
