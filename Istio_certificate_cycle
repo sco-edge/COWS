@@ -1,0 +1,2 @@
+###workload 인증서는 기본 24시간이고 환경변수로 변경
+secretTTLEnv = env.RegisterDurationVar("SECRET_TTL", 24*time.Hour,  "The cert lifetime requested by istio agent").Get()
