@@ -14,3 +14,7 @@ EOF
 
 ### 리소스 생성 확인
 kubectl get istiooperator -n istio-system
+
+### IstioOperator 파일 수정
+kubectl edit istiooperator istio-control-plane -n istio-system
+
