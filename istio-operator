@@ -18,3 +18,5 @@ kubectl get istiooperator -n istio-system
 ### IstioOperator 파일 수정
 kubectl edit istiooperator istio-control-plane -n istio-system
 
+### 현재 설정들을 모두 istio-operator.yaml파일로 복사 -> 내용 수정이 필요할 때마다 apply 필요
+kubectl get istiooperator istio-control-plane -n istio-system -o yaml > istio-operator.yaml
