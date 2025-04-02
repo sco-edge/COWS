@@ -32,3 +32,5 @@ histogram_quantile(0.99, sum(rate(istio_request_duration_milliseconds_bucket{sec
 ### 히스토그램 버킷별 모든 데이터 출
 sum(rate(istio_request_duration_milliseconds_bucket{security_istio_io_tlsMode="istio"}[1m])) by (le)
 
+### TLS 핸드셰이크 지연시간
+histogram_quantile(0.99, rate(istio_request_duration_milliseconds_bucket[5m]))
