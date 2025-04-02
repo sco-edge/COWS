@@ -1,2 +1,16 @@
 ### 기본 istio에는 operator.yaml 파일이 존재하지 않음, 따라서 operator를 init 해주어야 함
 istioctl operator init
+
+### init 실행 후 IstioOperator 리소스 생성
+kubectl apply -f - <<EOF
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: istio-control-plane
+spec:
+  profile: default
+EOF
+
+### 리소스 생성 확인
+kubectl get istiooperator -n istio-system
