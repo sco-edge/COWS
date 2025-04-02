@@ -1,0 +1,2 @@
+### 기본 istio에는 operator.yaml 파일이 존재하지 않음, 따라서 operator를 init 해주어야 함
+istioctl operator init
