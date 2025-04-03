@@ -37,4 +37,7 @@ istioctl install -f istio-operator.yaml --skip-confirmation
 kubectl rollout restart deploy/istiod -n istio-system
 ### 사이드카 재주입
 kubectl rollout restart deploy -n default --selector app=productpage
+### 자동 reload 활성화
+istioctl install --set values.global.istioNamespace=istio-system \
+  --set meshConfig.enableAutoCA=true
 
