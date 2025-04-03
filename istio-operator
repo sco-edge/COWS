@@ -54,3 +54,8 @@ kubectl exec -n istio-system $ISTIOD_POD -c discovery -- \
 grpc_server_handling_seconds_bucket{grpc_method="CreateCertificate",le="0.1"} 142
 grpc_server_handling_seconds_bucket{grpc_method="CreateCertificate",le="0.5"} 155
 ------------------------------------------------------------
+
+### 트래픽 발생
+# 500회 요청 (간격 0.1초)
+kubectl exec tmp-shell -c tmp-shell -- sh -c \
+  "for i in \$(seq 1 500); do curl -s http://productpage:9080; sleep 0.1; done"
