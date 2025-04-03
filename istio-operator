@@ -32,4 +32,5 @@ spec:
           ISTIO_META_ENABLE_CERT_METRICS: "true"
           SECRET_TTL: "6h"  # (기본 24h → 6h로 변경)
 ### 이후 적용
-kubectl apply -f istio-operator.yaml
+istioctl install -f istio-operator.yaml --skip-confirmation
+
