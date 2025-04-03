@@ -41,3 +41,16 @@ kubectl rollout restart deploy -n default --selector app=productpage
 istioctl install --set values.global.istioNamespace=istio-system \
   --set meshConfig.enableAutoCA=true
 
+
+### istiod 메트릭 확인----------------------------------------
+# istiod Pod 이름 확인
+ISTIOD_POD=$(kubectl get pods -n istio-system -l app=istiod -o jsonpath='{.items[0].metadata.name}')
+
+# CSR 처리 시간 (95th 백분위)
+kubectl exec -n istio-system $ISTIOD_POD -c discovery -- \
+  curl -s localhost:15014/metrics | grep 'grpc_server_handling_seconds_bucket{grpc_method="CreateCertificate"'
+
+# 출력 예시:
+grpc_server_handling_seconds_bucket{grpc_method="CreateCertificate",le="0.1"} 142
+grpc_server_handling_seconds_bucket{grpc_method="CreateCertificate",le="0.5"} 155
+------------------------------------------------------------
