@@ -30,5 +30,6 @@ spec:
           ISTIO_META_CERT_SIGNING: "true"
           ISTIO_META_TLS_DEBUG: "1"
           ISTIO_META_ENABLE_CERT_METRICS: "true"
+          SECRET_TTL: "6h"  # (기본 24h → 6h로 변경)
 ### 이후 적용
 kubectl apply -f istio-operator.yaml
