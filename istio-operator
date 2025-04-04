@@ -75,3 +75,7 @@ kubectl exec tmp-shell -c tmp-shell -- sh -c \
     rate(pilot_xds_push_time_bucket{type="sds"}[5m]))
 )
 ------------------------------------------------------------
+
+########전체 인증서 관리 지연시간
+CSR 처리 시간 (Envoy → istiod) + xds 업데이트 전파 시간 + 구성 변경 후 Envoy 적용 전체 시간
+grpc_server_handling_seconds + pilot_xds_push_time + pilot_proxy_convergence_time
