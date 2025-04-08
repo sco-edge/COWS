@@ -78,4 +78,9 @@ kubectl exec tmp-shell -c tmp-shell -- sh -c \
 
 ########전체 인증서 관리 지연시간
 CSR 처리 시간 (Envoy → istiod) + xds 업데이트 전파 시간 + 구성 변경 후 Envoy 적용 전체 시간
-grpc_server_handling_seconds_sum + pilot_xds_push_time_sum + pilot_proxy_convergence_time_sum
+grpc_server_handling_seconds_count + pilot_xds_push_time_count + pilot_proxy_convergence_time_count
+### xDS:
+EDS(Endpoint Discovery Service) : 업스트림 클러스터의 엔드포인트들을 관리
+CDS(Cluster Discovery Service) : 라우팅하는 동안 사용하는 업스트림 클러스터를 관리
+RDS(Route Discovery Service) : 필터의 전체 라우트 설정을 관리하는 기능.
+LDS(Listener Discovery Service) : 리스너를 관리하는 기능 (각종 필터관련 설정)
