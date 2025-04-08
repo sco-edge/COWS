@@ -84,3 +84,24 @@ EDS(Endpoint Discovery Service) : 업스트림 클러스터의 엔드포인트�
 CDS(Cluster Discovery Service) : 라우팅하는 동안 사용하는 업스트림 클러스터를 관리
 RDS(Route Discovery Service) : 필터의 전체 라우트 설정을 관리하는 기능.
 LDS(Listener Discovery Service) : 리스너를 관리하는 기능 (각종 필터관련 설정)
+
+### Control plane에서 전체 인증서 지연시간 P95
+(
+  histogram_quantile(0.95, 
+    rate(grpc_server_handling_seconds_bucket{
+      grpc_service="istio.v1.auth.IstioCertificateService",
+      grpc_method="CreateCertificate"}[60m])
+  )
+)
++
+(
+  histogram_quantile(0.95, 
+    rate(pilot_xds_push_time_bucket[60m])
+  )
+)
++
+(
+  histogram_quantile(0.95, 
+    rate(pilot_proxy_convergence_time_bucket[60m])
+  )
+)
