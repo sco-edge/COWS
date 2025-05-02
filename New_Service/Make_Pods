@@ -1,1 +1,3 @@
 
+### newservice이름을 가진 minikube 생성
+minikube start -p newservice --memory 8192 --cpus 4
