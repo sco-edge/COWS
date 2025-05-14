@@ -1,0 +1,12 @@
+# bookinfo 서비스를 서비스 메시가 적용되지 않은 환경에서 사용하기 위함
+# minikube(origin) 클러스터에서 배포
+
+# 서비스 파일 배포
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+
+# minikube에서 실행되고 있는 서비스 이름 노출
+minikube -p origin service list
+
+# minikube에서 productpage 서비스 배포(local에서 접속 가능하도록)
+minikube -p origin service productpage
+http://127.0.0.1:42931
