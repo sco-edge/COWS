@@ -1,0 +1,19 @@
+### reviews 마이크로서비스 버전3에 대해 50%의 확률로 4초간의 HTTP 지연 발생
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+  - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v3
+    fault:
+      delay:
+        percentage:
+          value: 50
+        fixedDelay: 4s
