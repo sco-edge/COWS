@@ -1,0 +1,4 @@
+minikube -p origin dashboard
+minikube -p origin service productpage
+minikube -p origin service prometheus
+minikube -p origin service grafana
