@@ -1,7 +1,9 @@
 ### minikube 프로필 리스트 확인
 minikube profile list
 
-
+### grafana와 prometheus 연동 시 prometheus URL
+터미널에서 kubectl get svc -n istio-system 명령을 내린 후
+http:'CLUSTER-IP':'PORT'
 
 ### 재부팅시
 minikube -p new start
