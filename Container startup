@@ -1,0 +1,5 @@
+
+
+- PromQL
+* CPU 사용량: sum(rate(container_cpu_usage_seconds_total{container!="POD"}[5m])) by (namespace, pod)
+* 메모리 사용량: sum(container_memory_usage_bytes{container!="POD"}) by (namespace, pod)
