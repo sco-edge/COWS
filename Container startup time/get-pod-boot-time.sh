@@ -12,17 +12,19 @@ get_condition_time() {
     date -d $iso_time +%s.%N
 }
 
-pod_scheduled_time=$(get_condition_time PodScheduled)
 initialized_time=$(get_condition_time Initialized)
 ready_time=$(get_condition_time Ready)
 containers_ready_time=$(get_condition_time ContainersReady)
+pod_scheduled_time=$(get_condition_time PodScheduled)
 
 # 각 단계별 소요 시간 계산 (소수점 셋째 자리까지)
-scheduled_to_initialized=$(echo "$initialized_time - $pod_scheduled_time" | bc)
-initialized_to_ready=$(echo "$ready_time - $initialized_time" | bc)
-ready_to_containers_ready=$(echo "$containers_ready_time - $ready_time" | bc)
+Initialized_to_Ready=$(echo "$ready_time - $initialized_time" | bc)
+Ready_to_ContainersReady=$(echo "$containers_ready_time - $ready_time" | bc)
+ContainersReady_to_PodScheduled=$(echo "$pod_scheduled_time - $containers_ready_time" | bc)
+All=$(echo "$pod_scheduled_time - $initialized_time" | bc)
 
 # 결과 출력
-printf "PodScheduled to Initialized: %.3f seconds\n" $scheduled_to_initialized
-printf "Initialized to Ready: %.3f seconds\n" $initialized_to_ready
-printf "Ready to ContainersReady: %.3f seconds\n" $ready_to_containers_ready
+printf "Initialized_to_Ready: %.3f seconds\n" $Initialized_to_Ready
+printf "Ready_to_ContainersReady: %.3f seconds\n" $Ready_to_ContainersReady
+printf "ContainersReady_to_PodScheduled: %.3f seconds\n" $ContainersReady_to_PodScheduled
+printf "All: %.3f seconds\n" $All
