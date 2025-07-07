@@ -1,0 +1,28 @@
+### kubeburner 테스트를 위한 metric(only productpage)
+
+metricsEndpoints:
+  - indexer:
+      type: local
+      metricsDirectory: ./results
+
+global:
+  measurements:
+    - name: podLatency
+      thresholds:
+        - conditionType: Ready
+          metric: P99
+          threshold: 20000ms
+        - conditionType: Ready
+          metric: P99
+          threshold: 15000ms
+
+jobs:
+  - name: productpage-coldstart
+    namespace: bookinfo-coldstart
+    jobIterations: 1
+    qps: 1
+    burst: 1
+    namespacedIterations: false
+    objects:
+      - objectTemplate: bookinfo-only-productpage.yaml
+        replicas: 1
