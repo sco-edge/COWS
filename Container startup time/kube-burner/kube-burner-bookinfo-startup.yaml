@@ -1,0 +1,60 @@
+global:
+  measurements:
+  - name: podLatency
+
+metricsEndpoints:
+- indexer:
+    type: local
+    metricsDirectory: ./metrics
+
+jobs:
+  - name: create-test-namespace
+    jobType: create
+    jobIterations: 1
+    objects:
+    - objectTemplate: namespace.yaml
+      replicas: 1
+
+  - name: bookinfo-startup-test
+    jobType: create
+    namespace: bookinfo-test
+    # 테스트 반복 횟수
+    jobIterations: 5
+    qps: 5
+    burst: 10
+    preLoadImages: false
+    
+    objects:
+      - objectTemplate: productpage-deployment.yaml
+        replicas: 1
+        inputVars:
+          containerImage: "docker.io/istio/examples-bookinfo-productpage-v1:1.16.2"
+          
+      - objectTemplate: details-deployment.yaml
+        replicas: 1
+        inputVars:
+          containerImage: "docker.io/istio/examples-bookinfo-details-v1:1.16.2"
+          
+      - objectTemplate: reviews-deployment.yaml
+        replicas: 1
+        inputVars:
+          containerImage: "docker.io/istio/examples-bookinfo-reviews-v1:1.16.2"
+          
+      - objectTemplate: ratings-deployment.yaml
+        replicas: 1
+        inputVars:
+          containerImage: "docker.io/istio/examples-bookinfo-ratings-v1:1.16.2"
+
+  - name: cleanup-bookinfo
+    jobType: delete
+    jobIterations: 1
+    objects:
+      - kind: Deployment
+        apiVersion: apps/v1
+        labelSelector: {kube-burner-job: bookinfo-startup-test}
+      - kind: Service
+        apiVersion: v1
+        labelSelector: {kube-burner-job: bookinfo-startup-test}
+      - kind: Namespace
+        apiVersion: v1
+        labelSelector: {kube-burner-job: create-test-namespace}
