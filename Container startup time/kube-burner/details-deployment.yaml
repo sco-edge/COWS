@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: details-{{.Iteration}}-{{.Replica}}
+  namespace: bookinfo-test
+  labels:
+    app: details
+    version: v1
+    kube-burner-job: {{.JobName}}
+    kube-burner-uuid: {{.UUID}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: details
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: details
+        version: v1
+    spec:
+      volumes:
+      - name: timing-logs
+        emptyDir: {}
+      initContainers:
+      - name: startup-timer
+        image: busybox:1.35
+        volumeMounts:
+        - name: timing-logs
+          mountPath: /shared
+        command:
+        - sh
+        - -c
+        - echo "container_start_ms:$(date +%s%3N)" > /shared/timing.log
+      containers:
+      - name: details
+        image: {{.containerImage}}
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        volumeMounts:
+        - name: timing-logs
+          mountPath: /shared
+        lifecycle:
+          postStart:
+            exec:
+              command:
+              - sh
+              - -c
+              - |
+                while ! (echo > /dev/tcp/localhost/9080) &>/dev/null; do
+                  sleep 0.01
+                done
+                echo "app_ready_ms:$(date +%s%3N)" >> /shared/timing.log
+      - name: timing-collector
+        image: busybox:1.35
+        volumeMounts:
+        - name: timing-logs
+          mountPath: /shared
+        command:
+        - sh
+        - -c
+        - |
+          tail -f /shared/timing.log | while read line; do
+            echo "[TIMING] $HOSTNAME: $line"
+          done
+        env:
+        - name: HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: details-{{.Iteration}}-{{.Replica}}
+  namespace: bookinfo-test
+  labels:
+    app: details
+    service: details
+    kube-burner-job: {{.JobName}}
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: details
