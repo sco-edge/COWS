@@ -1,0 +1,41 @@
+CONTAINER ID   IMAGE                                    COMMAND                  CREATED          STATUS          PORTS     NAMES
+fb8a6e350d83   781b1662ef67                             "/usr/local/bin/pilo…"   2 minutes ago    Up 2 minutes              k8s_istio-proxy_ratings-v1-7c9bd4b87f-7rlbh_default_7197ff68-1ba2-482d-9fa2-7b0a3e8cfe65_0
+d6ce50f4536e   istio/examples-bookinfo-ratings-v1       "docker-entrypoint.s…"   2 minutes ago    Up 2 minutes              k8s_ratings_ratings-v1-7c9bd4b87f-7rlbh_default_7197ff68-1ba2-482d-9fa2-7b0a3e8cfe65_0
+ead1c7012e28   781b1662ef67                             "/usr/local/bin/pilo…"   3 minutes ago    Up 3 minutes              k8s_istio-proxy_reviews-v1-6584ddcf65-8xmb9_default_fc315049-a1ca-4b20-8343-e530dd845d62_0
+3d6d0c56aff1   istio/examples-bookinfo-reviews-v1       "/opt/ol/helpers/run…"   3 minutes ago    Up 3 minutes              k8s_reviews_reviews-v1-6584ddcf65-8xmb9_default_fc315049-a1ca-4b20-8343-e530dd845d62_0
+7267a2bafbc7   781b1662ef67                             "/usr/local/bin/pilo…"   3 minutes ago    Up 3 minutes               k8s_istio-proxy_details-v1-65cfcf56f9-n99cj_default_b9ca63ad-d780-4e23-adbc-2a88cfc325b6_0
+7a5f1cd442dd   istio/examples-bookinfo-details-v1       "ruby details.rb 9080"   3 minutes ago    Up 3 minutes              k8s_details_details-v1-65cfcf56f9-n99cj_default_b9ca63ad-d780-4e23-adbc-2a88cfc325b6_0
+f9357171fabc   781b1662ef67                             "/usr/local/bin/pilo…"   3 minutes ago    Up 3 minutes              k8s_istio-proxy_reviews-v3-6f5b775685-59wt8_default_823b9632-483d-44a0-bdc6-960d8b91cdcf_0
+deb886d26a97   istio/examples-bookinfo-reviews-v3       "/opt/ol/helpers/run…"   3 minutes ago    Up 3 minutes              k8s_reviews_reviews-v3-6f5b775685-59wt8_default_823b9632-483d-44a0-bdc6-960d8b91cdcf_0
+53ccd93108de   781b1662ef67                             "/usr/local/bin/pilo…"   3 minutes ago    Up 3 minutes              k8s_istio-proxy_productpage-v1-d5789fdfb-8kwjm_default_53cdd959-d0a1-4376-8268-997ca09a8a38_0
+cec7d7e2154b   istio/examples-bookinfo-productpage-v1   "python productpage.…"   3 minutes ago    Up 3 minutes              k8s_productpage_productpage-v1-d5789fdfb-8kwjm_default_53cdd959-d0a1-4376-8268-997ca09a8a38_0
+5cb1b5d550d7   781b1662ef67                             "/usr/local/bin/pilo…"   3 minutes ago    Up 3 minutes              k8s_istio-proxy_reviews-v2-6f85cb9b7c-cfqbj_default_91c8aca8-a737-4bd1-87f0-49513019e66c_0
+30bf2e8050c9   istio/examples-bookinfo-reviews-v2       "/opt/ol/helpers/run…"   3 minutes ago    Up 3 minutes              k8s_reviews_reviews-v2-6f85cb9b7c-cfqbj_default_91c8aca8-a737-4bd1-87f0-49513019e66c_0
+bdc52eeda512   registry.k8s.io/pause:3.9                "/pause"                 3 minutes ago    Up 3 minutes              k8s_POD_productpage-v1-d5789fdfb-8kwjm_default_53cdd959-d0a1-4376-8268-997ca09a8a38_0
+0fcae8873ebf   registry.k8s.io/pause:3.9                "/pause"                 3 minutes ago    Up 3 minutes              k8s_POD_reviews-v3-6f5b775685-59wt8_default_823b9632-483d-44a0-bdc6-960d8b91cdcf_0
+8c79b3b95899   registry.k8s.io/pause:3.9                "/pause"                 3 minutes ago    Up 3 minutes              k8s_POD_reviews-v2-6f85cb9b7c-cfqbj_default_91c8aca8-a737-4bd1-87f0-49513019e66c_0
+cea20f674acb   registry.k8s.io/pause:3.9                "/pause"                 3 minutes ago    Up 3 minutes              k8s_POD_reviews-v1-6584ddcf65-8xmb9_default_fc315049-a1ca-4b20-8343-e530dd845d62_0
+93d0712e011d   registry.k8s.io/pause:3.9                "/pause"                 3 minutes ago    Up 3 minutes              k8s_POD_ratings-v1-7c9bd4b87f-7rlbh_default_7197ff68-1ba2-482d-9fa2-7b0a3e8cfe65_0
+be6dc88264c4   registry.k8s.io/pause:3.9                "/pause"                 3 minutes ago    Up 3 minutes              k8s_POD_details-v1-65cfcf56f9-n99cj_default_b9ca63ad-d780-4e23-adbc-2a88cfc325b6_0
+c00d6bed2b2d   istio/proxyv2                            "/usr/local/bin/pilo…"   4 minutes ago    Up 4 minutes              k8s_istio-proxy_istio-egressgateway-6c5b989dd-nsj96_istio-system_6f91a526-f9e8-48a3-8b6b-ea7dba04b4b4_0
+51355dbe9f6a   istio/proxyv2                            "/usr/local/bin/pilo…"   4 minutes ago    Up 4 minutes              k8s_istio-proxy_istio-ingressgateway-686954d6d4-g9nrj_istio-system_c63350cc-3bdc-4604-a5f8-0e63e83a8861_0
+740cf03e4f73   registry.k8s.io/pause:3.9                "/pause"                 4 minutes ago    Up 4 minutes              k8s_POD_istio-egressgateway-6c5b989dd-nsj96_istio-system_6f91a526-f9e8-48a3-8b6b-ea7dba04b4b4_0
+05f6a608dd62   registry.k8s.io/pause:3.9                "/pause"                 4 minutes ago    Up 4 minutes              k8s_POD_istio-ingressgateway-686954d6d4-g9nrj_istio-system_c63350cc-3bdc-4604-a5f8-0e63e83a8861_0
+2cdcbdc48c27   istio/pilot                              "/usr/local/bin/pilo…"   4 minutes ago    Up 4 minutes              k8s_discovery_istiod-868d9947bb-tct5s_istio-system_4fcd3cb2-8415-44b0-bca6-5a57e8abb69b_0
+aae79980a327   registry.k8s.io/pause:3.9                "/pause"                 5 minutes ago    Up 5 minutes              k8s_POD_istiod-868d9947bb-tct5s_istio-system_4fcd3cb2-8415-44b0-bca6-5a57e8abb69b_0
+
+==== 하단은 istio 설치 이전에도 존재하는 containers, 상단은 istio 설치 및 bookinfo 적용 후 나타나는 containers====
+b78fcc66eb98   6e38f40d628d                             "/storage-provisioner"   14 minutes ago   Up 14 minutes             k8s_storage-provisioner_storage-provisioner_kube-system_eb24f5a6-c66c-4d89-ab7a-979b0dbfa110_2
+a392825c4ad6   a0bf559e280c                             "/usr/local/bin/kube…"   14 minutes ago   Up 14 minutes             k8s_kube-proxy_kube-proxy-kdcw8_kube-system_25b53592-cb23-45c1-ab9c-a352e99b50bd_1
+ae0e01d6a331   registry.k8s.io/pause:3.9                "/pause"                 14 minutes ago   Up 14 minutes             k8s_POD_kube-proxy-kdcw8_kube-system_25b53592-cb23-45c1-ab9c-a352e99b50bd_1
+39f466ce7017   registry.k8s.io/pause:3.9                "/pause"                 14 minutes ago   Up 14 minutes             k8s_POD_storage-provisioner_kube-system_eb24f5a6-c66c-4d89-ab7a-979b0dbfa110_1
+6f4869fdc1fb   cbb01a7bd410                             "/coredns -conf /etc…"   14 minutes ago   Up 14 minutes             k8s_coredns_coredns-7db6d8ff4d-6hnrg_kube-system_779570bd-de2d-4882-9473-4f6387f8d7c0_1
+ac3feb0ed85a   3861cfcd7c04                             "etcd --advertise-cl…"   14 minutes ago   Up 14 minutes             k8s_etcd_etcd-istiotest_kube-system_367d7326e38d4a0acd29f5b3a1e0e6db_1
+f20711bc5f7e   c42f13656d0b                             "kube-apiserver --ad…"   14 minutes ago   Up 14 minutes             k8s_kube-apiserver_kube-apiserver-istiotest_kube-system_1f7693e337b52edb9d4070dd2c9afc63_1
+7867aeae6fdd   259c8277fcbb                             "kube-scheduler --au…"   14 minutes ago   Up 14 minutes             k8s_kube-scheduler_kube-scheduler-istiotest_kube-system_6a848048765f3fd0648b94fc3768cda0_1
+854a5882fb77   c7aad43836fa                             "kube-controller-man…"   14 minutes ago   Up 14 minutes             k8s_kube-controller-manager_kube-controller-manager-istiotest_kube-system_eb95ab85762b8f0de18f5cc70bbcd4e5_1
+1322112949fd   registry.k8s.io/pause:3.9                "/pause"                 14 minutes ago   Up 14 minutes             k8s_POD_coredns-7db6d8ff4d-6hnrg_kube-system_779570bd-de2d-4882-9473-4f6387f8d7c0_1
+627d29fd845c   registry.k8s.io/pause:3.9                "/pause"                 14 minutes ago   Up 14 minutes             k8s_POD_kube-scheduler-istiotest_kube-system_6a848048765f3fd0648b94fc3768cda0_2
+5fde2c18a84e   registry.k8s.io/pause:3.9                "/pause"                 14 minutes ago   Up 14 minutes             k8s_POD_etcd-istiotest_kube-system_367d7326e38d4a0acd29f5b3a1e0e6db_2
+4a4ab7e5c2e2   registry.k8s.io/pause:3.9                "/pause"                 14 minutes ago   Up 14 minutes             k8s_POD_kube-apiserver-istiotest_kube-system_1f7693e337b52edb9d4070dd2c9afc63_2
+489e2fc04d16   registry.k8s.io/pause:3.9                "/pause"                 14 minutes ago   Up 14 minutes             k8s_POD_kube-controller-manager-istiotest_kube-system_eb95ab85762b8f0de18f5cc70bbcd4e5_2
