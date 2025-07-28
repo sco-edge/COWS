@@ -1,0 +1,15 @@
+CONTAINER ID   IMAGE                       COMMAND                  CREATED         STATUS         PORTS     NAMES
+b78fcc66eb98   6e38f40d628d                "/storage-provisioner"   5 minutes ago   Up 5 minutes             k8s_storage-provisioner_storage-provisioner_kube-system_eb24f5a6-c66c-4d89-ab7a-979b0dbfa110_2
+a392825c4ad6   a0bf559e280c                "/usr/local/bin/kube…"   5 minutes ago   Up 5 minutes             k8s_kube-proxy_kube-proxy-kdcw8_kube-system_25b53592-cb23-45c1-ab9c-a352e99b50bd_1
+ae0e01d6a331   registry.k8s.io/pause:3.9   "/pause"                 5 minutes ago   Up 5 minutes             k8s_POD_kube-proxy-kdcw8_kube-system_25b53592-cb23-45c1-ab9c-a352e99b50bd_1
+39f466ce7017   registry.k8s.io/pause:3.9   "/pause"                 5 minutes ago   Up 5 minutes             k8s_POD_storage-provisioner_kube-system_eb24f5a6-c66c-4d89-ab7a-979b0dbfa110_1
+6f4869fdc1fb   cbb01a7bd410                "/coredns -conf /etc…"   5 minutes ago   Up 5 minutes             k8s_coredns_coredns-7db6d8ff4d-6hnrg_kube-system_779570bd-de2d-4882-9473-4f6387f8d7c0_1
+ac3feb0ed85a   3861cfcd7c04                "etcd --advertise-cl…"   5 minutes ago   Up 5 minutes             k8s_etcd_etcd-istiotest_kube-system_367d7326e38d4a0acd29f5b3a1e0e6db_1
+f20711bc5f7e   c42f13656d0b                "kube-apiserver --ad…"   5 minutes ago   Up 5 minutes             k8s_kube-apiserver_kube-apiserver-istiotest_kube-system_1f7693e337b52edb9d4070dd2c9afc63_1
+7867aeae6fdd   259c8277fcbb                "kube-scheduler --au…"   5 minutes ago   Up 5 minutes             k8s_kube-scheduler_kube-scheduler-istiotest_kube-system_6a848048765f3fd0648b94fc3768cda0_1
+854a5882fb77   c7aad43836fa                "kube-controller-man…"   5 minutes ago   Up 5 minutes             k8s_kube-controller-manager_kube-controller-manager-istiotest_kube-system_eb95ab85762b8f0de18f5cc70bbcd4e5_1
+1322112949fd   registry.k8s.io/pause:3.9   "/pause"                 6 minutes ago   Up 5 minutes             k8s_POD_coredns-7db6d8ff4d-6hnrg_kube-system_779570bd-de2d-4882-9473-4f6387f8d7c0_1
+627d29fd845c   registry.k8s.io/pause:3.9   "/pause"                 6 minutes ago   Up 5 minutes             k8s_POD_kube-scheduler-istiotest_kube-system_6a848048765f3fd0648b94fc3768cda0_2
+5fde2c18a84e   registry.k8s.io/pause:3.9   "/pause"                 6 minutes ago   Up 5 minutes             k8s_POD_etcd-istiotest_kube-system_367d7326e38d4a0acd29f5b3a1e0e6db_2
+4a4ab7e5c2e2   registry.k8s.io/pause:3.9   "/pause"                 6 minutes ago   Up 5 minutes             k8s_POD_kube-apiserver-istiotest_kube-system_1f7693e337b52edb9d4070dd2c9afc63_2
+489e2fc04d16   registry.k8s.io/pause:3.9   "/pause"                 6 minutes ago   Up 5 minutes             k8s_POD_kube-controller-manager-istiotest_kube-system_eb95ab85762b8f0de18f5cc70bbcd4e5_2
