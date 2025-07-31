@@ -12,3 +12,16 @@ spec:
   mtls:
     mode: STRICT
 EOF
+
+
+### extended-bookinfo
+kubectl apply -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: disable-mtls
+  namespace: extended-bookinfo
+spec:
+  mtls:
+    mode: STRICT
+EOF
