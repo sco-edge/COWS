@@ -1,0 +1,563 @@
+# Extended Bookinfo Services - Kubernetes Manifests
+# 이 파일은 기존 Bookinfo 애플리케이션에 추가된 10개의 마이크로서비스를 배포합니다.
+
+---
+# User Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+  labels:
+    app: user-service
+    service: user-service
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: user-service
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-user-service
+  labels:
+    account: user-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-v1
+  labels:
+    app: user-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: user-service
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-user-service
+      containers:
+      - name: user-service
+        image: extended-bookinfo/user-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        env:
+        - name: PORT
+          value: "9080"
+---
+# Order Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+  labels:
+    app: order-service
+    service: order-service
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: order-service
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-order-service
+  labels:
+    account: order-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service-v1
+  labels:
+    app: order-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: order-service
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-order-service
+      containers:
+      - name: order-service
+        image: extended-bookinfo/order-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        env:
+        - name: PORT
+          value: "9080"
+---
+# Inventory Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory-service
+  labels:
+    app: inventory-service
+    service: inventory-service
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: inventory-service
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-inventory-service
+  labels:
+    account: inventory-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-service-v1
+  labels:
+    app: inventory-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-service
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: inventory-service
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-inventory-service
+      containers:
+      - name: inventory-service
+        image: extended-bookinfo/inventory-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        env:
+        - name: PORT
+          value: "9080"
+---
+# Payment Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+  labels:
+    app: payment-service
+    service: payment-service
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: payment-service
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-payment-service
+  labels:
+    account: payment-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service-v1
+  labels:
+    app: payment-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-service
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: payment-service
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-payment-service
+      containers:
+      - name: payment-service
+        image: extended-bookinfo/payment-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        env:
+        - name: PORT
+          value: "9080"
+---
+# Notification Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service
+  labels:
+    app: notification-service
+    service: notification-service
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: notification-service
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-notification-service
+  labels:
+    account: notification-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service-v1
+  labels:
+    app: notification-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification-service
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: notification-service
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-notification-service
+      containers:
+      - name: notification-service
+        image: extended-bookinfo/notification-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        env:
+        - name: PORT
+          value: "9080"
+---
+# Search Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: search-service
+  labels:
+    app: search-service
+    service: search-service
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: search-service
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-search-service
+  labels:
+    account: search-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-service-v1
+  labels:
+    app: search-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: search-service
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: search-service
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-search-service
+      containers:
+      - name: search-service
+        image: extended-bookinfo/search-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        env:
+        - name: PORT
+          value: "9080"
+---
+# Recommendation Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: recommendation-service
+  labels:
+    app: recommendation-service
+    service: recommendation-service
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: recommendation-service
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-recommendation-service
+  labels:
+    account: recommendation-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recommendation-service-v1
+  labels:
+    app: recommendation-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recommendation-service
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: recommendation-service
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-recommendation-service
+      containers:
+      - name: recommendation-service
+        image: extended-bookinfo/recommendation-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        env:
+        - name: PORT
+          value: "9080"
+---
+# Analytics Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: analytics-service
+  labels:
+    app: analytics-service
+    service: analytics-service
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: analytics-service
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-analytics-service
+  labels:
+    account: analytics-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analytics-service-v1
+  labels:
+    app: analytics-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: analytics-service
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: analytics-service
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-analytics-service
+      containers:
+      - name: analytics-service
+        image: extended-bookinfo/analytics-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        env:
+        - name: PORT
+          value: "9080"
+---
+# Catalog Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalog-service
+  labels:
+    app: catalog-service
+    service: catalog-service
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: catalog-service
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-catalog-service
+  labels:
+    account: catalog-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog-service-v1
+  labels:
+    app: catalog-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalog-service
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: catalog-service
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-catalog-service
+      containers:
+      - name: catalog-service
+        image: extended-bookinfo/catalog-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        env:
+        - name: PORT
+          value: "9080"
+---
+# Shipping Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipping-service
+  labels:
+    app: shipping-service
+    service: shipping-service
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: shipping-service
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-shipping-service
+  labels:
+    account: shipping-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping-service-v1
+  labels:
+    app: shipping-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shipping-service
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: shipping-service
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-shipping-service
+      containers:
+      - name: shipping-service
+        image: extended-bookinfo/shipping-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+        env:
+        - name: PORT
+          value: "9080" 

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Extended Bookinfo 직접 테스트</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .service-card {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #f8f9fa;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 5px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        .btn-success {
+            background: #28a745;
+        }
+        .btn-info {
+            background: #17a2b8;
+        }
+        .status {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .status-success {
+            background: #28a745;
+            color: white;
+        }
+        .url-box {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .test-result {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Extended Bookinfo 직접 테스트</h1>
+        
+        <div class="service-card">
+            <div class="status status-success">✅ 정상 실행</div>
+            <h2>📚 기존 Bookinfo 애플리케이션</h2>
+            <div class="url-box">
+                <strong>접속 URL:</strong> http://192.168.76.2:30080
+            </div>
+            <a href="http://192.168.76.2:30080" class="btn" target="_blank">📖 Bookinfo 접속</a>
+            <a href="http://192.168.76.2:30080/health" class="btn btn-info" target="_blank">🔍 헬스체크</a>
+        </div>
+
+        <div class="service-card">
+            <div class="status status-success">✅ 정상 실행</div>
+            <h2>👤 User Service (사용자 관리)</h2>
+            <div class="url-box">
+                <strong>접속 URL:</strong> http://192.168.76.2:30081<br>
+                <strong>API 엔드포인트:</strong><br>
+                • /health - 헬스체크<br>
+                • /users - 사용자 목록<br>
+                • /metrics - Prometheus 메트릭
+            </div>
+            <a href="http://192.168.76.2:30081" class="btn" target="_blank">👤 User Service 접속</a>
+            <a href="http://192.168.76.2:30081/health" class="btn btn-info" target="_blank">🔍 헬스체크</a>
+            <a href="http://192.168.76.2:30081/users" class="btn btn-success" target="_blank">👥 사용자 목록</a>
+            <button onclick="testUserService()" class="btn">🧪 API 테스트</button>
+        </div>
+
+        <div class="service-card">
+            <div class="status status-success">✅ 정상 실행</div>
+            <h2>🔍 Search Service (도서 검색)</h2>
+            <div class="url-box">
+                <strong>접속 URL:</strong> http://192.168.76.2:30082<br>
+                <strong>API 엔드포인트:</strong><br>
+                • /health - 헬스체크<br>
+                • /search - 도서 검색<br>
+                • /metrics - Prometheus 메트릭
+            </div>
+            <a href="http://192.168.76.2:30082" class="btn" target="_blank">🔍 Search Service 접속</a>
+            <a href="http://192.168.76.2:30082/health" class="btn btn-info" target="_blank">🔍 헬스체크</a>
+            <a href="http://192.168.76.2:30082/search" class="btn btn-success" target="_blank">📚 도서 검색</a>
+            <button onclick="testSearchService()" class="btn">🧪 API 테스트</button>
+        </div>
+
+        <div class="service-card">
+            <div class="status status-success">✅ 정상 실행</div>
+            <h2>📊 Analytics Service (분석)</h2>
+            <div class="url-box">
+                <strong>접속 URL:</strong> http://192.168.76.2:30083<br>
+                <strong>API 엔드포인트:</strong><br>
+                • /health - 헬스체크<br>
+                • /analytics - 분석 데이터<br>
+                • /metrics - Prometheus 메트릭
+            </div>
+            <a href="http://192.168.76.2:30083" class="btn" target="_blank">📊 Analytics Service 접속</a>
+            <a href="http://192.168.76.2:30083/health" class="btn btn-info" target="_blank">🔍 헬스체크</a>
+            <a href="http://192.168.76.2:30083/analytics" class="btn btn-success" target="_blank">📈 분석 데이터</a>
+            <button onclick="testAnalyticsService()" class="btn">🧪 API 테스트</button>
+        </div>
+
+        <div class="service-card">
+            <h2>🧪 API 테스트 결과</h2>
+            <div id="testResult" class="test-result" style="display:none;"></div>
+        </div>
+
+        <div class="service-card">
+            <h2>📈 모니터링 도구</h2>
+            <a href="http://192.168.76.2:16686" class="btn btn-info" target="_blank">🔍 Jaeger (분산 추적)</a>
+            <a href="http://192.168.76.2:9090" class="btn btn-info" target="_blank">📊 Prometheus (메트릭)</a>
+        </div>
+    </div>
+
+    <script>
+        function testUserService() {
+            fetch('http://192.168.76.2:30081/health')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('testResult').innerHTML = 'User Service 응답:\n' + JSON.stringify(data, null, 2);
+                    document.getElementById('testResult').style.display = 'block';
+                })
+                .catch(error => {
+                    document.getElementById('testResult').innerHTML = '오류: ' + error.message;
+                    document.getElementById('testResult').style.display = 'block';
+                });
+        }
+
+        function testSearchService() {
+            fetch('http://192.168.76.2:30082/health')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('testResult').innerHTML = 'Search Service 응답:\n' + JSON.stringify(data, null, 2);
+                    document.getElementById('testResult').style.display = 'block';
+                })
+                .catch(error => {
+                    document.getElementById('testResult').innerHTML = '오류: ' + error.message;
+                    document.getElementById('testResult').style.display = 'block';
+                });
+        }
+
+        function testAnalyticsService() {
+            fetch('http://192.168.76.2:30083/health')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('testResult').innerHTML = 'Analytics Service 응답:\n' + JSON.stringify(data, null, 2);
+                    document.getElementById('testResult').style.display = 'block';
+                })
+                .catch(error => {
+                    document.getElementById('testResult').innerHTML = '오류: ' + error.message;
+                    document.getElementById('testResult').style.display = 'block';
+                });
+        }
+    </script>
+</body>
+</html> 

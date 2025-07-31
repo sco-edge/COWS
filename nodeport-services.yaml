@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service-nodeport
+  labels:
+    app: user-service
+    service: user-service
+spec:
+  type: NodePort
+  ports:
+  - port: 9080
+    targetPort: 9080
+    nodePort: 30092
+    name: http
+  selector:
+    app: user-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: search-service-nodeport
+  labels:
+    app: search-service
+    service: search-service
+spec:
+  type: NodePort
+  ports:
+  - port: 9080
+    targetPort: 9080
+    nodePort: 30093
+    name: http
+  selector:
+    app: search-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: analytics-service-nodeport
+  labels:
+    app: analytics-service
+    service: analytics-service
+spec:
+  type: NodePort
+  ports:
+  - port: 9080
+    targetPort: 9080
+    nodePort: 30094
+    name: http
+  selector:
+    app: analytics-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: productpage-nodeport
+  labels:
+    app: productpage
+    service: productpage
+spec:
+  type: NodePort
+  ports:
+  - port: 9080
+    targetPort: 9080
+    nodePort: 30095
+    name: http
+  selector:
+    app: productpage 
