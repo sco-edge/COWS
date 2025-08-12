@@ -135,6 +135,17 @@ while true; do kubectl -n istio-system port-forward deploy/prometheus 9090:9090;
 
 # Loki 접근
 while true; do kubectl -n istio-system port-forward svc/loki 8080:80; done
+
+# ControlZ 접근
+  # Open ControlZ web UI for the istiod-123-456.istio-system pod
+  istioctl dashboard controlz istiod-123-456.istio-system
+
+  # Open ControlZ web UI for the istiod-56dd66799-jfdvs pod in a custom namespace
+  istioctl dashboard controlz istiod-123-456 -n custom-ns
+
+  # Open ControlZ web UI for any Istiod pod
+  istioctl dashboard controlz deployment/istiod.istio-system
+
 ```
 
 ## 6. 정리 및 삭제
