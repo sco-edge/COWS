@@ -147,16 +147,19 @@ while true; do kubectl -n istio-system port-forward svc/loki 8080:80; done
   istioctl dashboard controlz deployment/istiod.istio-system
 
 # Envoy Admin 페이지 접근
-  # Details
-  kubectl port-forward details-v1-65cfcf56f9-8p4gc 15001:15000 -n default
-  # Ratings  
-  kubectl port-forward ratings-v1-7c9bd4b87f-84q2q 15002:15000 -n default
-  # Reviews v1
-  kubectl port-forward reviews-v1-6584ddcf65-kljfz 15003:15000 -n default
-  # Reviews v2
-  kubectl port-forward reviews-v2-6f85cb9b7c-lv5hp 15004:15000 -n default
-  # Reviews v3
-  kubectl port-forward reviews-v3-6f5b775685-8ttfd 15005:15000 -n default
+  # 브라우저에서 http://localhost:15000 접속
+    # Productpage
+    kubectl port-forward productpage-v1-d5789fdfb-tgrh6 15000:15000 -n default
+    # Details
+    kubectl port-forward details-v1-65cfcf56f9-8p4gc 15001:15000 -n default
+    # Ratings  
+    kubectl port-forward ratings-v1-7c9bd4b87f-84q2q 15002:15000 -n default
+    # Reviews v1
+    kubectl port-forward reviews-v1-6584ddcf65-kljfz 15003:15000 -n default
+    # Reviews v2
+    kubectl port-forward reviews-v2-6f85cb9b7c-lv5hp 15004:15000 -n default
+    # Reviews v3
+    kubectl port-forward reviews-v3-6f5b775685-8ttfd 15005:15000 -n default
 
 ```
 
